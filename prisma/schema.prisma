@@ -27,6 +27,7 @@ enum Network {
 enum WalletTxType {
   FUNDING
   DEBIT
+  CREDIT
   REFUND
 }
 
@@ -42,6 +43,7 @@ enum PinStatus {
 }
 
 enum PurchaseStatus {
+  PENDING
   COMPLETED
   FAILED
 }
