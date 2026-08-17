@@ -6,7 +6,7 @@ WORKDIR /app
 # Install deps (including devDeps needed for build)
 COPY package*.json ./
 COPY prisma ./prisma
-RUN npm ci
+RUN npm ci --include=dev
 
 # Copy source and build
 COPY tsconfig.json nest-cli.json ./
