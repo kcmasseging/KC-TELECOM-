@@ -105,7 +105,7 @@ export default function BuyData() {
 
       <Card>
         <form onSubmit={onSubmit} className="space-y-4">
-          {formError && <Banner type="error">{formError}</Banner>}
+          {formError && <Banner kind="error" message={formError} />}
 
           <div className="grid grid-cols-2 gap-3">
             <label className="block">
@@ -136,7 +136,7 @@ export default function BuyData() {
       </Card>
 
       {successPurchase && (
-        <Banner type="success">Data purchase {successPurchase.status} — reference: {successPurchase.reference}</Banner>
+        <Banner kind="success" message={`Data purchase ${successPurchase.status} — reference: ${successPurchase.reference}`} />
       )}
     </div>
   );
