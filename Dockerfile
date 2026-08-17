@@ -1,6 +1,8 @@
 # ---------- Stage 1: build ----------
 FROM node:20-alpine AS builder
 
+RUN apk add --no-cache openssl
+
 WORKDIR /app
 
 # Install deps (including devDeps needed for build)
@@ -16,6 +18,8 @@ RUN npm run build
 
 # ---------- Stage 2: production runtime ----------
 FROM node:20-alpine AS runner
+
+RUN apk add --no-cache openssl
 
 WORKDIR /app
 ENV NODE_ENV=production
