@@ -171,7 +171,7 @@ export const dataApi = {
       method: 'POST',
       body: JSON.stringify(payload),
     }),
-  history: () => request<DataSubscription[]>('/vendor/data/history'),
+  history: () => request<DataSubscription[]>('/vendor/data/subscriptions'),
 };
 
 // ---- admin pin stock -------------------------------------------------

@@ -6,6 +6,9 @@ const vendorNav = [
   { to: '/vendor/wallet', label: 'Wallet' },
   { to: '/vendor/buy-pins', label: 'Buy PIN Books' },
   { to: '/vendor/buy-airtime', label: 'Buy Airtime' },
+  { to: '/vendor/airtime-history', label: 'Airtime History' },
+  { to: '/vendor/buy-data', label: 'Buy Data' },
+  { to: '/vendor/data-history', label: 'Data History' },
   { to: '/vendor/purchases', label: 'My Purchases' },
   { to: '/vendor/transactions', label: 'Transactions' },
 ];
@@ -64,6 +67,23 @@ export function Layout() {
             </button>
           </div>
         </header>
+
+        <nav className="flex gap-1 overflow-x-auto border-b border-slate-200 bg-white px-3 py-2 sm:hidden">
+          {nav.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              end={item.end}
+              className={({ isActive }) =>
+                `shrink-0 rounded-lg px-3 py-2 text-sm font-medium transition ${
+                  isActive ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-100'
+                }`
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
+        </nav>
 
         <main className="flex-1 p-4 sm:p-6">
           <Outlet />
