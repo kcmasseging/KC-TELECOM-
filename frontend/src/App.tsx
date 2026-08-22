@@ -16,6 +16,9 @@ import DataHistory from './pages/vendor/DataHistory';
 import MyPurchases from './pages/vendor/MyPurchases';
 import PurchasedPins from './pages/vendor/PurchasedPins';
 import Transactions from './pages/vendor/Transactions';
+import Services from './pages/vendor/Services';
+import History from './pages/vendor/History';
+import Profile from './pages/vendor/Profile';
 
 import AdminDashboard from './pages/admin/AdminDashboard';
 import CreateBatch from './pages/admin/CreateBatch';
@@ -43,6 +46,9 @@ export default function App() {
         <Route element={<ProtectedRoute allowedRoles={['VENDOR']} />}>
           <Route element={<Layout />}>
             <Route path="/vendor" element={<VendorDashboard />} />
+            <Route path="/vendor/services" element={<Services />} />
+            <Route path="/vendor/history" element={<History />} />
+            <Route path="/vendor/profile" element={<Profile />} />
             <Route path="/vendor/wallet" element={<Wallet />} />
             <Route path="/vendor/buy-pins" element={<BuyPins />} />
             <Route path="/vendor/buy-airtime" element={<BuyAirtime />} />

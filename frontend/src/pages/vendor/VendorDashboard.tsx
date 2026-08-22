@@ -25,29 +25,35 @@ export default function VendorDashboard() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-xl font-semibold text-slate-900">Overview</h1>
+      <div className="page-heading">
+        <p className="eyebrow">Vendor workspace</p>
+        <h1>Good to see you back.</h1>
+        <p className="page-subtitle">Manage your telecom services and keep your business moving.</p>
+      </div>
       {error && <Banner kind="error" message={error} />}
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <StatCard label="Wallet balance" value={wallet ? formatNaira(wallet.balance) : '—'} />
+      <div className="wallet-hero">
+        <div>
+          <p className="wallet-label">Available wallet balance</p>
+          <p className="wallet-amount">{wallet ? formatNaira(wallet.balance) : '—'}</p>
+          <Link to="/vendor/wallet" className="wallet-link">Fund wallet <span aria-hidden="true">→</span></Link>
+        </div>
+        <span className="wallet-mark" aria-hidden="true">◆</span>
+      </div>
+
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <StatCard label="PINs purchased" value={summary ? String(summary.totalPinsBought) : '—'} />
         <StatCard label="Total spent" value={summary ? formatNaira(summary.totalSpent) : '—'} />
       </div>
 
-      <Card>
-        <h2 className="text-sm font-semibold text-slate-900">Quick actions</h2>
-        <div className="mt-3 flex flex-wrap gap-3">
-          <Link to="/vendor/wallet" className="rounded-lg bg-brand-50 px-4 py-2 text-sm font-medium text-brand-700 hover:bg-brand-100">
-            Fund wallet
-          </Link>
-          <Link to="/vendor/buy-pins" className="rounded-lg bg-brand-50 px-4 py-2 text-sm font-medium text-brand-700 hover:bg-brand-100">
-            Buy recharge PINs
-          </Link>
-          <Link to="/vendor/purchases" className="rounded-lg bg-brand-50 px-4 py-2 text-sm font-medium text-brand-700 hover:bg-brand-100">
-            View my PINs
-          </Link>
+      <section>
+        <div className="section-heading"><h2>Quick actions</h2><Link to="/vendor/services">View all services</Link></div>
+        <div className="service-grid">
+          <Link to="/vendor/buy-airtime" className="service-card service-card-blue"><span className="service-icon">◒</span><span><strong>Airtime</strong><small>Recharge a number</small></span><span className="service-arrow">→</span></Link>
+          <Link to="/vendor/buy-data" className="service-card service-card-cyan"><span className="service-icon">◈</span><span><strong>Data</strong><small>Browse data plans</small></span><span className="service-arrow">→</span></Link>
+          <Link to="/vendor/history" className="service-card service-card-dark"><span className="service-icon">↺</span><span><strong>History</strong><small>Review activity</small></span><span className="service-arrow">→</span></Link>
         </div>
-      </Card>
+      </section>
     </div>
   );
 }

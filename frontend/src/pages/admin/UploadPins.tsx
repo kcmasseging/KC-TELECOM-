@@ -111,7 +111,7 @@ export default function UploadPins() {
           </label>
 
           <Button onClick={onSubmit} isLoading={isSubmitting} disabled={batches.length === 0}>
-            Upload PINs
+            Bulk Upload PINs
           </Button>
         </div>
       </Card>

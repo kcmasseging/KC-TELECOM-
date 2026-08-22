@@ -1,7 +1,7 @@
 import type { ButtonHTMLAttributes, InputHTMLAttributes, ReactNode, SelectHTMLAttributes } from 'react';
 
 export function Card({ children, className = '' }: { children: ReactNode; className?: string }) {
-  return <div className={`rounded-xl border border-slate-200 bg-white p-5 shadow-sm ${className}`}>{children}</div>;
+  return <div className={`surface-card rounded-xl border border-slate-200 bg-white p-5 shadow-sm ${className}`}>{children}</div>;
 }
 
 export function StatCard({ label, value, hint }: { label: string; value: string; hint?: string }) {
